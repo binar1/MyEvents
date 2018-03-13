@@ -1,5 +1,9 @@
  <!-- Static navbar -->
+<<<<<<< HEAD
     <nav class="navbar navbar-default navbar-static-top">
+=======
+    <nav class="navbar navbar-inverse   navbar-fixed-top" style="width:100%">
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -29,7 +33,11 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
             <li class="active"><a href="./">Log In <span class="sr-only">(current)</span></a></li>
+=======
+            <li class="active" style="font-weight:bold;"><a href="include/Login.php">Log In <span class="sr-only">(current)</span></a></li>
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
             <li><a href="include/Register.php">Sign Up</a></li>
           </ul>
         </div><!--/.nav-collapse -->
