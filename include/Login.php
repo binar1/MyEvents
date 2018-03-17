@@ -2,10 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<link rel="stylesheet" href="style.css">
+  	    <title>Login</title>
     <link rel="icon" href="../../favicon.ico">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="../css/bootstrap-min.css">
     <link href="bug-workaround.css" rel="stylesheet">
     <link href="navbar.css" rel="stylesheet">
@@ -19,14 +18,13 @@
 	<body>
 		<?php include 'Header.php';?>
 		<div class="loginBox">
-			<img src="../images/download.png" class="user">
 			<h2>Log In Here</h2>
 			<form>
-				<p>Email</p>
+				<p>Email</p> 
 				<input type="text" name="" placeholder="Enter Email">
 				<p>Password</p>
 				<input type="password" name="" placeholder="••••••">
-				<input type="submit" name="" value="Sign In">
+				<input type="submit" name="submit" value="Sign In" >
 				<a href="#">Forget Password</a>
 			</form>
 		</div>

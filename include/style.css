@@ -15,6 +15,7 @@ body
 	width: 350px;
 	height: 420px;
 	padding: 80px 40px;
+	padding-top:0;
 	box-sizing: border-box;
 	background: rgba(0,0,0,.9);
 	border-radius: 20px;
@@ -31,11 +32,11 @@ body
 }
 h2
 {
-	margin: 0;
-	padding: 0 0 20px;
-	color: white;
+	
+	padding: 0 0 15px;
+	color: #efed40;
 	text-align: center;
-}
+	}
 .loginBox p
 {
 	margin: 0;
@@ -68,20 +69,20 @@ h2
 	border: none;
 	outline: none;
 	height: 40px;
-	color: #fff;
+	color:#fff;
 	font-size: 16px;
-	background: green;
+	background-color:#a5a573;
 	cursor: pointer;
 	border-radius: 20px;
 }
 .loginBox input[type="submit"]:hover
 {
-	background: white;
-	color: green;
+	background-color:white;
+	color:#a5a573;
 }
 .loginBox a
 {
-	color: #fff;
+	color:#fff;
 	font-size: 14px;
 	font-weight: bold;
 	text-decoration: none;
