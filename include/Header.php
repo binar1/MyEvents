@@ -29,7 +29,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="./">Log In <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="include/Login.php">Log In <span class="sr-only">(current)</span></a></li>
             <li><a href="include/Register.php">Sign Up</a></li>
           </ul>
         </div><!--/.nav-collapse -->
