@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ContactUs</title>
-
+	<title>ContactUs</title>	
 	<link href="../css/bootstrap-min.css" rel="stylesheet">
-	
-    
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style type="text/css">
     
 
@@ -34,10 +34,10 @@ h2{
 <div  class="container">
     	<div class="bg">
 	    	<div class="row">    		
-	    		<div class="col-sm-12">    			   			
-					<h2 class="title text-center">Contact Us</h2>    			    		<div style="color: white; font-weight: bold; font-size: 18px; text-decoration-style: wavy;text-shadow: transparent; text-align: left;">
+	    		<div class="col-sm-12" style="padding-top: 50px;">    			   			
+					<h2 class="title text-center">Contact Us</h2>    			    		<div style="background-color: rgba(93, 93, 60,0.2); border-radius: 5px; padding: 15px;" >
 						
-							<p>Have questions about a large or complex event?<br> 
+							<p style="color: #2f2f1e; font-weight: bolder; font-size: 22px; text-decoration-style: wavy;text-shadow: transparent; text-align: left; ">Have questions about a large or complex event?<br> 
 						Our team of experts will track down the answers.
 					    Simply fill out the form to the right, and we’ll be in touch shortly.</p>
 					</div>		    				
@@ -113,3 +113,4 @@ h2{
     
 </body>
 </html>
+ <?php include 'Footer.php'; ?>
