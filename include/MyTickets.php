@@ -13,6 +13,9 @@
     margin-right: auto;
     width: 50%;
 }
+.a1:hover{
+text-decoration: none;
+}
 
     </style>
 </head>
@@ -65,7 +68,7 @@
       <div > <img style="width: 50%" src="../images/empty.png" class="center">
       </div>
         <div style="width: 100%;" >
-          <a href="EventList.php"><input style="width: 50%" type="submit" class="btn btn-danger btn-lg center"  value="DISCOVER EVENTS"></button></a>
+          <a class="a1" href="../index.php"><input style="width: 50%;" type="submit" class="btn btn-danger btn-lg center " value="DISCOVER EVENTS"></button></a>
         </div>
 </div>
 </body>

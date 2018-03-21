@@ -15,7 +15,7 @@
 </head>
 <body>
 <?php include ('Header.php');?>
-	<div class="container" >
+	<div class="container" style="width: 100%; height: 400px; padding-top: 55px;">
 		<img style="height: 350px;" src="../images/maxresdefault.jpg">
 		</div>
 		<div class="container" style="width: 100%; height: 150px; text-align: center; font-size: 30px; font-weight: bolder; padding-top: 50px;"> Event Name</div>

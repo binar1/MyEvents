@@ -8,7 +8,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-
+@font-face{
+  font-family:Roboto;
+  src:'../fonts/Roboto.tff';
+}
+#detail{
+  font-family:Roboto;
+}
 .card1 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
@@ -53,7 +59,7 @@ p{
 </head>
 <body style="background-color: #ebebe0;">
 <?php include 'Header.php'; ?>
-<div class="container" style="background-color: white; padding:10px; padding-top: 60px; text-align: center; font-size: 25px;"><div style="background-color: #2f2f1e; font-weight: bold;font-family: Consolas; color: #ffffff; " ><span style="font-size: 30px;  padding: 6px;padding-top: 25px; float: left; height: 100%;"><p style="color: #cdcdb1;">My Event</p></span><p style="padding: 3px; color: #ffffff;"><div style="width: 100%; text-align: center; margin-left: 5px; padding-right: 8px; text-align: justify;"> is the world's largest event technology platform. We build the technology to allow anyone to create, share, find and attend new things to do that fuel their passions and enrich their lives. Music festivals,venues, marathons, conferences, hackathons, air guitar contests, political rallies, fundraisers, gaming competitions - you name it, we power it. Our mission? To bring the world together through live experiences.</p></div></div></div>
+<div class="container" id="detail" style="padding:3px; padding-top: 60px; text-align: center; font-size: 25px;"><div style="background-color: #ebebe0; font-weight: bold; color:rgba(0,0,0,0.9); " ><span style="font-size: 30px;  padding: 6px;padding-top: 25px; float: left; height: 100%;"><p style="color: #cdcdb1;">My Event</p></span><p style="padding: 3px; color: #ffffff;"><div style="width: 100%; text-align: center; margin-left: 5px; padding-right: 8px; text-align: justify;"> is the world's largest event technology platform. We build the technology to allow anyone to create, share, find and attend new things to do that fuel their passions and enrich their lives. Music festivals,venues, marathons, conferences, hackathons, air guitar contests, political rallies, fundraisers, gaming competitions - you name it, we power it. Our mission? To bring the world together through live experiences.</p></div></div></div>
 
 
 <h2 style="text-align:center;padding-top: 40px; font-family: Times New Roman; font-weight: bold; font-size: 40px; color:#6d6d46; ">About Us</h2>
