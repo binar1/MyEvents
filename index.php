@@ -123,7 +123,12 @@
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
    <?php include 'include/Header.php';  ?>
+<<<<<<< HEAD
+   
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+=======
    <div id="myCarousel" class="carousel slide" style="margin-top:50px;" data-ride="carousel">
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active" style="text-align:center;font-size:40px;font-weight: bold;color:white;"></li>
