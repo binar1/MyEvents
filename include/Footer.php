@@ -12,16 +12,40 @@
                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3" style="margin-left:65%">
                       <h6 class="text-uppercase mb-4 font-weight-bold" style="color:white;margin-bottom:20px;">Connect With us</h6>
                       <p><a href="#!" class="footer-links">
+<<<<<<< HEAD
                       	<img src="../images/facebookk.png" width="30px" height="30px">&nbsp&nbspfacebook
+||||||| merged common ancestors
+                      	<img src="images/facebookk.png" width="30px" height="30px">&nbsp&nbspfacebook
+=======
+                      	<img src="../images/facebookk.png" width="30px" height="30px" style="width: 30px;height: 30px;">&nbsp&nbspfacebook
+>>>>>>> 691d70cb8367afc5ef9e0ce86a46411d8f65cc67
                       </a></p>
                       <p><a href="#!" class="footer-links">
+<<<<<<< HEAD
                       	<img src="../images/instagramm.png" width="30px" height="30px">&nbsp&nbspinstagram
+||||||| merged common ancestors
+                      	<img src="images/instagramm.png" width="30px" height="30px">&nbsp&nbspinstagram
+=======
+                      	<img src="../images/instagramm.png" width="30px" height="30px" style="width: 30px;height: 30px;">&nbsp&nbspinstagram
+>>>>>>> 691d70cb8367afc5ef9e0ce86a46411d8f65cc67
                       </a></p>
                       <p><a href="#!" class="footer-links">
+<<<<<<< HEAD
                       	<img src="../images/google.png" width="30px" height="30px">&nbsp&nbspGoogle Pluse
+||||||| merged common ancestors
+                      	<img src="images/google.png" width="30px" height="30px">&nbsp&nbspGoogle Pluse
+=======
+                      	<img src="../images/google.png" width="30px" height="30px" style="width: 30px;height: 30px;">&nbsp&nbspGoogle Pluse
+>>>>>>> 691d70cb8367afc5ef9e0ce86a46411d8f65cc67
                       </a></p>
                       <p><a href="#!" class="footer-links">
+<<<<<<< HEAD
                       	<img src="../images/youtubb.png" width="30px" height="30px">&nbsp&nbspYoutube
+||||||| merged common ancestors
+                      	<img src="images/youtubb.png" width="30px" height="30px">&nbsp&nbspYoutube
+=======
+                      	<img src="../images/youtubb.png" width="30px" height="30px" style="width: 30px;height: 30px;">&nbsp&nbspYoutube
+>>>>>>> 691d70cb8367afc5ef9e0ce86a46411d8f65cc67
                       </a></p>
                   </div>
                    
