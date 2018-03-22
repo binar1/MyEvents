@@ -17,6 +17,21 @@
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<<<<<<< HEAD
+  </head>
+
+  <body>
+
+   <?php include 'include/Header.php';  ?>
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active" style="text-align:center;font-size:40px;font-weight: bold;color:white;">music festival</li>
+    <li data-target="#myCarousel" data-slide-to="1">nan festival</li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+=======
     <style type="text/css">
     .carousel-inner > .item >img,
     .carousel-inner > .item > a >img{
@@ -108,37 +123,52 @@
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
 
    <?php include 'include/Header.php';  ?>
+<<<<<<< HEAD
+   
+   <div id="myCarousel" class="carousel slide" data-ride="carousel">
+=======
    <div id="myCarousel" class="carousel slide" style="margin-top:50px;" data-ride="carousel">
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active" style="text-align:center;font-size:40px;font-weight: bold;color:white;"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
       <img src="images/bb.jpg" alt="Los Angeles" style="width:100%;height:500px;">
+<<<<<<< HEAD
+=======
       <div class="carousel-caption">
       	<h3>food festival</h3>
       	<p>welcome to food festival</p>
       </div>
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
     </div>
 
     <div class="item">
       <img src="images/bbb.jpg" alt="Chicago" style="width:100%;height:500px;">
+<<<<<<< HEAD
+=======
       <div class="carousel-caption">
       	<h3>DJ festival</h3>
       	<p>welcome to DJ festival</p>
       </div>
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
     </div>
 
     <div class="item">
       <img src="images/b.jpg" alt="New York" style="width:100%;height:500px;">
+<<<<<<< HEAD
+=======
       <div class="carousel-caption">
       	<h3 class="carousel-title">music festival</h3>
       	<p>welcome to music festival</p>
       </div>
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
     </div>
   </div>
 
@@ -152,6 +182,10 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<<<<<<< HEAD
+<div  class="container ">
+	<h1>binar</h1>
+=======
 <div  class="container" style="margin-top:100px;" >
 
 	<h1 align="center">Browse by Top Categories</h1>
@@ -184,12 +218,17 @@
     
   </div>
 
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
 </div>
 
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
+<<<<<<< HEAD
+    
+=======
    <?php include 'include/Footer.php';   ?> 
+>>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
    
   </body>
 </html>

@@ -1,5 +1,9 @@
  <!-- Static navbar -->
+
+    <nav class="navbar navbar-default navbar-static-top">
+
     <nav class="navbar navbar-inverse   navbar-fixed-top" style="width:100%">
+
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -13,8 +17,8 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="AboutUs.php">About</a></li>
+            <li><a href="ContactUs.php">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -29,8 +33,12 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active" style="font-weight:bold;"><a href="include/Login.php">Log In <span class="sr-only">(current)</span></a></li>
-            <li><a href="include/Register.php">Sign Up</a></li>
+
+            
+
+            <li class="active" style="font-weight:bold;"><a href="Login.php">Log In <span class="sr-only">(current)</span></a></li>
+
+            <li><a href="Register.php">Sign Up</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
