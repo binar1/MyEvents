@@ -121,12 +121,38 @@
   </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
+<<<<<<< HEAD
+   <div class="container-fluid" style="padding:0;">
+    <?php require_once 'init.php';
+     $user=DB::getInstance()->query('select * from user');
+    // $update=DB::getInstance()->update('user',3,array('username' =>'Mr.binar','password'=>1234 ));
+     
+    //$insert= DB::getInstance()->insert('user',array('username' => 'binar','password'=>123));
+    // if ($insert) {
+    //  echo "success";
+    // }
+     if (!$user->count()) {
+            echo "nimana";
+           }else {
+            echo "dastxosh";
+            foreach ( $user->result() as $key) {
+               echo $key->username ."<br>".$key->password;
+               
+            }
+           }
+     ?>
+   <?php # include 'Header.php';  ?>
+||||||| merged common ancestors
+
+   <?php include 'include/Header.php';  ?>
+=======
 
    <?php include 'include/Header.php';  ?>
 <<<<<<< HEAD
    
    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 =======
+>>>>>>> 691d70cb8367afc5ef9e0ce86a46411d8f65cc67
    <div id="myCarousel" class="carousel slide" style="margin-top:50px;" data-ride="carousel">
 >>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
   <!-- Indicators -->
@@ -187,6 +213,7 @@
 	<h1>binar</h1>
 =======
 <div  class="container" style="margin-top:100px;" >
+  
 
 	<h1 align="center">Browse by Top Categories</h1>
 	<div class="row" style="margin-top:40px;margin-bottom:30px;">
@@ -225,10 +252,18 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
 <<<<<<< HEAD
+   <?php include 'Footer.php';   ?> 
+</div>   
+||||||| merged common ancestors
+   <?php include 'include/Footer.php';   ?> 
+   
+=======
+<<<<<<< HEAD
     
 =======
    <?php include 'include/Footer.php';   ?> 
 >>>>>>> bf0b3e7cc4a7644f521ba8cdcb73f3a1e7647396
    
+>>>>>>> 691d70cb8367afc5ef9e0ce86a46411d8f65cc67
   </body>
 </html>
