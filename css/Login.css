@@ -15,7 +15,7 @@ body
 	width: 350px;
 	height: 420px;
 	padding: 80px 40px;
-	padding-top:0;
+	padding-top: 0;
 	box-sizing: border-box;
 	background: rgba(0,0,0,.9);
 	border-radius: 20px;
@@ -36,7 +36,8 @@ h2
 	padding: 0 0 15px;
 	color: #efed40;
 	text-align: center;
-	}
+	margin-top: 20px;
+}
 .loginBox p
 {
 	margin: 0;
