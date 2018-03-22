@@ -3,6 +3,10 @@ font-family: "swift";
 src: url("fonts/Swift-Regular.ttf");
 }
 @font-face {
+font-family: "Helvetica";
+src: url("fonts/HEL.ttf");
+}
+@font-face {
 font-family: "Roboto";
 src: url("fonts/Roboto.ttf");
 }

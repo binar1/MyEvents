@@ -106,8 +106,26 @@
   </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-   <?php include 'include/Header.php';  ?>
+   <div class="container-fluid" style="padding:0;">
+    <?php require_once 'init.php';
+     $user=DB::getInstance()->query('select * from user');
+    // $update=DB::getInstance()->update('user',3,array('username' =>'Mr.binar','password'=>1234 ));
+     
+    //$insert= DB::getInstance()->insert('user',array('username' => 'binar','password'=>123));
+    // if ($insert) {
+    //  echo "success";
+    // }
+     if (!$user->count()) {
+            echo "nimana";
+           }else {
+            echo "dastxosh";
+            foreach ( $user->result() as $key) {
+               echo $key->username ."<br>".$key->password;
+               
+            }
+           }
+     ?>
+   <?php # include 'Header.php';  ?>
    <div id="myCarousel" class="carousel slide" style="margin-top:50px;" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -153,6 +171,7 @@
   </a>
 </div>
 <div  class="container" style="margin-top:100px;" >
+  
 
 	<h1 align="center">Browse by Top Categories</h1>
 	<div class="row" style="margin-top:40px;margin-bottom:30px;">
@@ -189,7 +208,7 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-   <?php include 'include/Footer.php';   ?> 
-   
+   <?php include 'Footer.php';   ?> 
+</div>   
   </body>
 </html>
