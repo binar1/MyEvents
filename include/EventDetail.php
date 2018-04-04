@@ -1,3 +1,11 @@
+<?php require_once '../init.php';
+$event=false;
+if (isset($_GET['number'])) {
+ $event=new Event($_GET['number'],null); 
+}
+ 
+
+  ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,19 +45,23 @@
 <body style="background-color:#f9f9f9;">
 <div class="container-fluid">
 <?php include 'Header.php' ?>
+<?php if (isset($_GET['number'])) {
+  if ($_GET['number']) {
+ 
+  ?>
  <div class="row" style="padding-top:55px;">
  <div class="col-lg-9" style="padding-top:10px;">
- <img src="../images/womenTech.jpg" class="img-rounded" style="width:100%;height:400px;" />	
+ <img src=<?php echo "../images/Events/".$event->data()->img; ?> class="img-rounded" style="width:100%;height:400px;" />	
  <div class="row" style="width:100%;padding-bottom:10px;background-color:rgba(0,0,0,0.9);padding-top:20px;margin:0;">
  	<div class="col" style="height:100%;width:20%;float:left;">
  		<img onclick="bb()" id="Like" src="../icon/like.png" width="30px" height="30" align="right" style="margin-top:20%;cursor:pointer;">
  		<p align="right" style="color:#ed0707;margin-top:40%;font-weight:bold;font-size:20px;">500</p>
  	</div>
  	<div class="col" style="height:100%;width:60%;float:left;">
- 	<h1 class="text-center" style="margin:0;">IWD: Women in Tech Summit Sulaymaniyah </h1>
- 	<h4 class="text-center">By Cinama salm</h4>
- 	<h4 class="text-center text-light" style="font-family:serif;">Day:APR 08   3:00PM</h4>
- 	<h4 class="text-center text-light" style="font-family:serif;">Address:Sulaimany AUS</h4>
+ 	<h1 class="text-center" style="margin:0;"> </h1>
+ 	<h4 class="text-center">By:<?php echo $event->data()->oranizername; ?></h4>
+ 	<h4 class="text-center text-light" style="font-family:serif;">Day:<?php echo $event->data()->start_date."&nbsp;&nbsp; Time:".$event->data()->time;  ?></h4>
+ 	<h4 class="text-center text-light" style="font-family:serif;">Address:<?php echo $event->data()->address;  ?></h4>
  	<a href="" style="width:100%;height:50px;padding-top:15px;margin-top:10px;" class="btn btn-success">Buy Ticket</a>
  </div>
  	<div class="col" style="height:100%;width:20%;float:left;">
@@ -59,36 +71,15 @@
  </div>
  <div id="container-socials" class="collapse" style="height:100px;margin-top:-150px;width:300px;margin-left:58%;position:absolute;">
  	<ul id="socials" style="list-style-type:none;">
- 		<li><a href=""><img src="../icon/facebook" width="50px" height="50px"></a></li>
- 		<li><a href=""><img src="../icon/instagram" width="50px" height="50px"></a></li>
- 		<li><a href=""><img src="../icon/twitter" width="50px" height="50px"></a></li>
+ 		<li><a href=""><img src="../icon/facebook.png" width="50px" height="50px"></a></li>
+ 		<li><a href=""><img src="../icon/instagram.png" width="50px" height="50px"></a></li>
+ 		<li><a href=""><img src="../icon/twitter.png" width="50px" height="50px"></a></li>
  	</ul>
  </div>
 
  <div style="margin-top:15px;background-color:rgba(0,0,0,0.9);padding:5px;">
  <h4 class="text-muted" style="color:#f9f9f9"" >Description</h4>	
- <p style="font-size:22px;padding:10px;color:#f9f9f9;text-overflow:ellipsis;" class="detail text-justify">Postage only needs to be added to one ticket for the entire order to be delivered. To try and avoid overpayments, the system will only permit you to add 1 ticket of that price with postage.
-Please ensure that if you select postage that you complete your full name, full address and postcode to ensure tickets are processed and can arrive as quickly as possible.
-
-If you do not select postage then your order must be collected from Lincoln City FC Ticket office as there will be no tickets available to collect from Wembley. (Collection dates will be announced)
-
-Ambulant disabled supporters need to select the age appropriate ticket then add a carer if applicable.
-
-Wheelchair disabled supporters need to select the age appropriate ticket then add a carer if applicable. On checkout, please ensure that select "yes" to being a wheelchair user. There is no accessability for wheelchairs within the category 6 tickets.
-
-Where multiple tickets are purchased within the same price category, we will endeavour to ensure that they are all allocated together. If multiple orders are placed on the same day, the same name will need to be put in the "group leader" box on each order. Wherever possible, we will try to allocate these muliple orders together. Should you be an organised group and require more than 9 tickets then please follow the instructions given on the Lincoln City FC website for group bookings.
-
-Travel will need to be ordered seperately.
-
-Tickets for this fixture, along with travel, will not be sent electronically as a physical ticket is needed for admittance.
-
-Refund Policy
-
-Refunds in respect of this fixture may only be granted if the ticket is returned to the ticket office before tickets are taken 'Off Sale'.
-
-Please note, however, it is the customer's responsibility to check whether the event is going ahead at the scheduled date, time and venue, and we cannot guarantee that we will inform the customer of any changes to the event date, time or venue.
-
-We cannot accept any liability for tickets that are not delivered, however we will endeavour to help as much as we can.</p>
+ <p style="font-size:22px;padding:10px;color:#f9f9f9;text-overflow:ellipsis;" class="detail text-justify"><?php echo $event->data()->detail; ?></p>
 <div style="margin-bottom:50px;">
 	<h2 style="font-family:swift" align="center">you can find it in the map</h2>
 	<div id="map" class="container-fluid" style="height:400px;margin-top:10px;">
@@ -102,18 +93,32 @@ We cannot accept any liability for tickets that are not delivered, however we wi
  </div>
  </div>
  <div class="col-lg-3" style="margin-top:10px;">
-  <div style="width:100%;height:40px;background-color:rgba(0,0,0,0.9);font-family:Roboto;padding-top:0.5px;" align="center"><h4>Here's some Event you may be Like it</h4></div>    
- <div class="suggest" style="width:100%;background-color:#f9f9f9;margin-top:-50px;height:200px;background-image:url('../images/bb.jpg');background-size:cover;">
- <h4 style="margin-top:20%;margin-left:90%;color:white;background-color:#00c365;height:35px;width:30px;">12$</h4>
- <h3 style="margin-top:40%;color:white;font-weight:bold;font-family:Helvetica;margin-left:10px;">Food festival</h3>
- </div> 
- <div class="suggest" style="width:100%;background-color:#f9f9f9;margin-top:-50px;height:200px;background-image:url('../images/bb.jpg');background-size:cover;">
- <h4 style="margin-top:20%;margin-left:90%;color:white;background-color:#00c365;height:35px;width:30px;">12$</h4>
- <h3 style="margin-top:40%;color:white;font-weight:bold;font-family:Helvetica;margin-left:10px;">Food festival</h3>
- </div> 
+  <div style="width:100%;height:40px;background-color:rgba(0,0,0,0.9);font-family:Roboto;padding-top:0.5px;" align="center"><h4>Here's some Event you may be Like it</h4></div>  
+  <?php $events=new Event(null,$event->data()->catagorey_id); 
+   if ($events->result()) {
+    foreach ($events->result() as $ones) {
+    $price='';
+    if (!$ones->price) {
+       $price='Free';
+    }else{ $price .=$ones->price;}
+    ?>
+ <a href=<?php echo "EventDetail.php?number=".$ones->event_id; ?>><div class="suggest" style="width:100%;background-color:#f9f9f9;margin-top:-50px;height:200px;background-image:url(<?php echo "../images/Events/$ones->img";?>);background-size:cover;">
+ <h4 style="margin-top:20%;margin-left:87%;color:white;background-color:#00c365;height:35px;width:35px;"><?php echo $price; ?></h4>
+ <h3 style="margin-top:40%;color:white;font-weight:bold;font-family:Helvetica;margin-left:10px;"><?php echo $ones->name; ?></h3>
+ </div> </a>
+ <?php }  }
+
+    ?>
  </div>	
  </div>
-	
+	<?php  } 
+}else{
+?>
+<div class="col-lg-11">
+ <h1 align="center" style="margin-top:150px;"> you are failed to open Event detail</h1> 
+</div>
+
+<?php }?>
 </div>
 </body>
 </html>

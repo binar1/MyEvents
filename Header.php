@@ -9,14 +9,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">MyEvents</a>
+          <a class="navbar-brand" href="index.php">MyEvents</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li  class='active'
-             ><a href="MyEvents/index.php">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+             ><a href="index.php">Home</a></li>
+            <li><a href="include/AboutUs.php">About</a></li>
+            <li><a href="include/ContactUs.php">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -31,9 +31,20 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li class="active" style="font-weight:bold;"><a href="include/Login.php">Log In <span class="sr-only">(current)</span></a></li>
-            <li><a href="include/Register.php">Sign Up</a></li>
-          </ul>
+            <?php
+            $member=new User(); 
+            if($member->isLoggedIn()){ ?>
+             <li  style="font-weight:bold;">
+              <a href="include/Profile.php"><?php if($member->data()->img){ echo "<img src=images/Profile/".$member->data()->img." width='30px' height='30px' style='margin-right:10px;border-radius:50px;'>"; }else{ echo "<img src=images/Profile.png  width='25px' height='25px' style='margin-right:10px;border-radius:50px;'>";}?>Profile <span class="sr-only">(current)</span></a></li>
+            <li>
+              <a href="include/Logout.php"><img src="images/logout.png" width="25px" height="25px" style="margin-right:10px;margin-left:10px;">Log Out</a></li>
+         <?php   }else{
+              ?>
+            <li class="active" style="font-weight:bold;">
+              <a href="include/Login.php">Log In <span class="sr-only">(current)</span></a></li>
+            <li>
+              <a href="include/Register.php">Sign Up</a></li>
+       <?php } ?>   </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
