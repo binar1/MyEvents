@@ -1,8 +1,16 @@
+<?php require_once '../init.php'; 
+$user=new User();
+
+if ($_SESSION['type']==='organization') {
+  Redirect(404);
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Your Ticket</title>
 	<link rel="stylesheet" type="text/css" href="../css/bootstrap-min.css">
+  <link rel="icon" href="../images/logo.png">
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -28,7 +36,7 @@ text-decoration: none;
 	<div class="imageBox col-sm-4" ><img src="../images/ticket1.png" style="width: 200px; height: 200px; float: left;">
 </div>
 <div class="imageBox col-sm-4"  ><h1 style="text-align: center; color:#ff9933; font-weight: bold; font-family: Times New Roman; padding-top: 50px; font-size: 60px;">Welcome</h1>
-	<h2 style="text-align: center; color:#b35900; font-weight: bold; font-family: Times New Roman;  font-size: 20px;">Bahroz Mohammed</h2>
+	<h1 style="text-align: center; color:#b35900; font-weight: bold; font-family: Times New Roman;  font-size: 20px;text-transform:capitalize;"><?php echo $user->data()->firstname." ".$user->data()->lastname; ?></h1>
 
 </div>
     <div class="imageBox col-sm-4" ><img src="../images/ticket3.png" style="width: 200px; height: 200px; float: right;"> 
@@ -68,7 +76,7 @@ text-decoration: none;
       <div > <img style="width: 50%" src="../images/empty.png" class="center">
       </div>
         <div style="width: 100%;" >
-          <a class="a1" href="../index.php"><input style="width: 50%;" type="submit" class="btn btn-danger btn-lg center " value="DISCOVER EVENTS"></button></a>
+          <a class="a1" href="../index.php"><input style="width: 50%;" type="button" class="btn btn-danger btn-lg center " value="DISCOVER EVENTS"></a>
         </div>
 </div>
 </body>

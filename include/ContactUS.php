@@ -1,8 +1,9 @@
-
+<?php require_once '../init.php';  ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ContactUs</title>	
+	<title>ContactUs</title>
+	<link rel="icon" href="../images/logo.png">	
 	<link href="../css/bootstrap-min.css" rel="stylesheet">
 	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/jquery.min.js"></script>

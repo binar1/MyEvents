@@ -8,8 +8,8 @@ class DB{
             $_count=0;
 private function __construct(){
 	try{
-    echo Config::get('mysql/host');
-      $this->_pdo=new PDO('mysql:host='.Config::get('mysql/host').';dbname='.Config::get('mysql/db'),
+    
+        $this->_pdo=new PDO('mysql:host='.Config::get('mysql/host').';dbname='.Config::get('mysql/db'),
       	Config::get('mysql/username'),Config::get('mysql/password'));
 	}
 	catch(PDOExpetion $e){
@@ -19,7 +19,7 @@ private function __construct(){
 
 public static function getInstance(){
 	if (!isset(self::$_instance)) {
-	  self::$_instance=new db();	
+	  self::$_instance=new DB();	
 	}
 	return self::$_instance;
 }
@@ -28,6 +28,7 @@ public function query($sql,$params=array())
 {
   $this->_error=false;
   if ($this->_query=$this->_pdo->prepare($sql)) {
+    
    $x=1;
    if (count($params)) {
      foreach ($params as $param) {
@@ -38,7 +39,7 @@ public function query($sql,$params=array())
    if ($this->_query->execute()) {
     $this->_result=$this->_query->fetchAll(PDO::FETCH_OBJ);
     $this->_count=$this->_query->rowCount();
-
+     
   }else{
     $this->_error=true;
   }
@@ -53,8 +54,8 @@ public function query($sql,$params=array())
     $operator=$where[1];
     $value=$where[2];
     if (in_array($operator,$operators)) {
-      $sql="{action} from {table} where {field} {operator} ?";
-      if ($this->query($sql,array($value))->error()) {
+      $sql="{$action} FROM {$table} WHERE {$field} {$operator} ?";
+      if (!$this->query($sql,array($value))->error()) {
         return $this;
       }
     }
@@ -90,7 +91,7 @@ public function insert($table, $fildes=array()){
      return false;
 } 
 
-public function update($table,$id,$fildes){
+public function update($table,$idname,$id,$fildes){
 $set='';
 $x=1;
  foreach ($fildes as $name => $value) {
@@ -100,8 +101,8 @@ $x=1;
      $x++;
    }
  }
-  $sql ="UPDATE {$table} SET {$set} WHERE id={$id}";
-  if ($this->query($sql,$fildes)->error()) {
+  $sql ="UPDATE {$table} SET {$set} WHERE {$idname}={$id}";
+  if (!$this->query($sql,$fildes)->error()) {
     return true;
   }
   return false;

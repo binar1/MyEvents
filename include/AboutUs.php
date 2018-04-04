@@ -1,9 +1,13 @@
+<?php require_once '../init.php';  ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>About Us</title>
-	  <link rel="stylesheet" type="text/css" href="../css/bootstrap-min.css">
-    <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+  <link rel="icon" href="../images/logo.png">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap-min.css">
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

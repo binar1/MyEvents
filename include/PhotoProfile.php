@@ -1,3 +1,21 @@
+<?php require_once '../init.php';
+   if (isset($_POST['submtImage'])) {
+   	$validate=new ValidationMember();
+      $validate->checkImage($_FILES,array(
+      	'image' =>array('max' => 1000000 , 'type'=>array('jpg','jpeg'))
+      	));
+      if ($validate->passed()) {
+      	echo "darchw";
+      }else
+      {
+      	foreach ($validate->errors() as $error) {
+      		echo "$error<br>";
+      	}
+      }
+   }
+    
+   ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,9 +37,9 @@
 </head>
 <body>
 <div class="container-fluid">
-  <?php include 'Header.php';   ?>
+  <?php # include'Header.php';   ?>
 <div class="container"  style="padding: 0;left:50%;background-color:#f3f3f3;height:500px;width:600px;margin-top:80px;">
-	<form >
+	<form action=<?php echo $_SERVER['PHP_SELF']; ?> method="POST" enctype="multipart/form-data" >
 	<div style="background-color:rgba(0,0,0,0.9);height:50px;width:100%;"><p align="center" style="color:#f6f6f6;top:50%;font-size:25px;">Upload Your Image</p></div>
 	<div id="saraki" onmouseover="imageB()" onmouseout="imageA()" style="margin-left:25%;background-color:black;height:300px;width:300px;border-radius:150px;margin-top:30px;">
 	<input type="button" id="buttonUpload" name="Upload" value="Upload" class="btn btn-danger" style="margin-left:40%;margin-top:50%;opacity:0;cursor:pointer;">
