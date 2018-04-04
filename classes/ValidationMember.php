@@ -50,9 +50,9 @@
                 
                 break;
                 case 'unique':
-                 $check=$this->_db->get($rule_value,array($item,'=',$value));
+                 $check=$this->_db->get($rule_value,array('email','=',$value));
                  if ($this->_db->count()) {
-                    $this->addError("Account,is already exist");
+                    $this->addError("This Email is used!!");
                  }
                 break;
 
