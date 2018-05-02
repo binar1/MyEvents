@@ -8,7 +8,7 @@
  	        $_data,
  	        $_result;
  	
- 	function __construct($event=null,$type=null)
+ 	function __construct($event=null,$type=null,$organization=null)
  	{
  		$this->_db=DB::getInstance();
       if ($event) {
@@ -16,6 +16,10 @@
        } 
        if ($type) {
        	$this->findType($type);
+       }
+
+       if ($organization) {
+         $this->findOrganizationEvents($organization);
        }
  	}
 
@@ -43,6 +47,7 @@
        	       throw new Exception("ou have an error in get event types");
        	       
        	   }else{
+
        	   	       if ($this->_db->count()) {
        	   	       	$this->_result=$this->_db->result();
        	   	       }
@@ -50,6 +55,36 @@
 
     }
 }
+
+public function findOrganizationEvents($id)
+    {
+     if ($id)
+       {
+           if (!$this->_db->get('event',array('organization_id','=',$id))) {
+               throw new Exception("ou have an error in get event types");
+               
+           }else{
+
+                   if ($this->_db->count()) {
+                    $this->_result=$this->_db->result();
+                   }
+                }  
+
+    }
+}
+
+
+public  function addEvent($table,$fields)
+{
+if (!$this->_db->insert($table,$fields)) {
+       throw new Exception  ('there was a problem add event');
+    }else
+    {
+      Redirect::to('../index.php');
+    }
+}
+
+
 
 public function result(){
 	return $this->_result;

@@ -1,3 +1,13 @@
+<?php  require_once '../init.php'; 
+ if (!isset($_GET['Ticket'])) {
+ 	Redirect::to(4041);
+ }
+  $eventID=base64_decode($_GET['Ticket']);
+  $event=new Event($eventID,null,null);
+  $Ticket=1;
+  $Price=$Ticket*$event->data()->price;
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,23 +80,32 @@
 		<div class="row bgbox center"> 
 
 			<div class="col-sm-6" style="float: left; font-weight: bold;font-size: 22px; color: white;">
-				event name <br><p>00-00-0000</p><p>1 Ticket</p>
+			<p style="text-transform:capitalize;color:white;"><?php echo "Event Title: ".$event->data()->name; ?></p>
+			<p>Start-Day:<?php echo $event->data()->start_date."&nbsp&nbsp".$event->data()->start_time; ?></p>
+			<div>
+				<input type="number" name="quantity" min="1" max=<?php echo $event->data()->available_ticket; ?> style="float:left;color:black" value="1" >
+				<p style="float:left;margin-left:10px;margin-right:10px;margin-top:5px;">Ticket</p>
+				
+			</div>
 			</div>
 
 			<div class="col-sm-6" style=" padding-top: 10px;">
-				<img src="../images/b.jpg" class="image">
+				<img src=<?php echo "../images/Events/".$event->data()->img; ?> class="image">
 			</div>
 
 			<div class="col-sm-6" style="">
-				<h4 style="font-size: 18px; font-weight: bold; color: white;">TOTAL</h4>
-				<h5 style="font-size: 20px; color: white;">20$</h5>
+				<h4 style="font-size: 18px; font-weight: bold; color: white;">Per Ticket Price:</h4>
+				<h5 style="font-size: 20px; color: white;"><?php echo $Price."$";   ?></h5>
 			</div>
 			<hr width="100%">
 				<h3 id="font" style="font-size: 20px; color: white; font-weight: bold;">Choose a way to pay</h3>
+				<form method="GET" action=<?php echo $_SERVER['PHP_SELF']."?Ticket=".base64_encode($event->data()->event_id); ?>>
 				<div class="btn-group-vertical" style="width: 100%;">
-  					<button type="button" class="btn btn-default"><img src="../images/paypal.png" style="width: 30px;height: 30px; float: left;">PayPal</button>
- 					 <button type="button" class="btn btn-default"><img src="../images/card.png" style="width: 30px;height: 30px; float: left;">Card</button>
+  					<button type="submit" class="btn btn-default" name="card" value="paypal"><img src="../images/paypal.png" style="width: 30px;height: 30px; float: left;">PayPal</button>
+ 					 <button type="submit" name="card" class="btn btn-default" value="card"><img src="../images/card.png" style="width: 30px;height: 30px; float: left;">Card</button>
  				</div>
+ 			</form>
+ 				<?php if(isset($_GET['card'])&&$_GET['card']=='card'){ ?>
  				 <span style="padding-top: 5px;"><hr></span><!-- CARD -->
  					<div class="container center form1">
  						<div class="row" style="padding:10px;">
@@ -112,8 +131,11 @@
  							</div>
  							<label>Postcode</label>
  							<input type="text" name="card number" placeholder="" class="input1" required="required">
-
+                        
+                     
  						<span style="padding-top: 5px;"><hr></span> <!-- Pay Pal -->
+ 						<?php }elseif (isset($_GET['card'])&&$_GET['card']=='paypal') {
+                        	?>
  						<div class="row center" style="background-color: white; padding: 5px; width: 100%;">
  							<div class="col-sm-12 " ><img src="../images/paypal.png" style="width: 60px; height: 40px;" class="center">
  							</div>
@@ -125,9 +147,9 @@
  							</div>
 
  						</div>
-
+                       <?php   } ?>
  							<span style="padding-top: 5px;"><hr></span><!-- PAY -->
- 							<button type="button" class="btn btn-default center" style="padding: 5px;">PAY</button>
+ 							<button type="button" class="btn btn-default center" style="padding: 5px;" <?php if(!isset($_GET['card'])){ echo "disabled";} ?>>PAY</button>
  						</form>	
  					</div>
 		</div>

@@ -1,3 +1,16 @@
+<?php require_once '../init.php';
+$user=new User();
+$organization=false;
+if (!isset($_GET['profile'])) {
+  Redirect::to(4041);
+}else{
+	$organization=new User($_GET['profile'],'organization');
+}
+if (!$user->isLoggedIn()) {
+	Redirect::to('Login.php');
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +32,7 @@
 	}
     </style>
 </head>
-<?php include 'header.php';?>
+<?php include 'Header.php';?>
 <body>
 <div class="container" style="padding-top: 50px;">
 <div class="row divbg">

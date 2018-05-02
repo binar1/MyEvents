@@ -56,7 +56,11 @@
                  }
                 break;
 
-              
+                case 'less':
+                        if ($value<$rule_value) {
+                          $this->addError(" $item,Can Not be Less Than $rule_value");
+                        }
+                        break;      
               default:
                 # code...
                 break;
