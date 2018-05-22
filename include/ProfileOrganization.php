@@ -61,6 +61,7 @@ if (!$user->isLoggedIn()) {
            foreach ($events->result() as $ones) {
            	
 		 ?>
+		 <a href=<?php echo "EventDetail.php?number=".$ones->event_id; ?>>
 		<div class="col-sm-12">
 			<div class="col-sm-3 divimage">
 				<img src=<?php echo "../images/Events/".$ones->img; ?> style="width: 150px;height: 150px;">
@@ -71,7 +72,7 @@ if (!$user->isLoggedIn()) {
 						<td style="text-transform:capitalize;">Name:&nbsp;<?php echo $ones->name; ?> </td>
 					</tr>
 					<tr>
-						<td>Date & Time :<?php echo $ones->start_date." ".$ones->time ?></td>
+						<td>Date & Time :<?php echo $ones->start_date." ".$ones->start_time ?></td>
 					</tr>
 					<tr>
 						<td>Address:<?php echo $ones->address; ?></td>
@@ -80,6 +81,7 @@ if (!$user->isLoggedIn()) {
 				</table>
 			</div>
 		</div>
+	</a>
 		<hr style="width: 100%;height:1px;background-color:black">
 		<?php } } ?>
 	</div>

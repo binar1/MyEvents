@@ -59,7 +59,7 @@ if (isset($_GET['number'])) {
  	</div>
  	<div class="col" style="height:100%;width:60%;float:left;">
  	<h1 class="text-center" style="margin:0;"> </h1>
- <a href=<?php echo "ProfileOrganization.php?profile=".$event->data()->organization_id; ?>>  <h4 class="text-center">By:<?php echo $event->data()->oranizername; ?></h4></a>
+ <a href=<?php echo "ProfileOrganization.php?profile=".$event->data()->organization_id; ?>>  <h4 class="text-center">By:<?php echo $event->data()->organizername; ?></h4></a>
  	<h4 class="text-center text-light" style="font-family:serif;">Day:<?php echo $event->data()->start_date."&nbsp;&nbsp; Time:".$event->data()->start_time;  ?></h4>
  	<h4 class="text-center text-light" style="font-family:serif;">Address:<?php echo $event->data()->address;  ?></h4>
   <h4 class="text-center text-light" style="font-family:serif;">Finsh-Day:<?php echo $event->data()->end_date."&nbsp;&nbsp; Time:".$event->data()->end_time; ?></h4>

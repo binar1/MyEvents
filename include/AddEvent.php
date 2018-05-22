@@ -28,7 +28,7 @@
        
          	$elements=array(
          		'name'=>Input::get('title'),
-         		'oranizername'=>Input::get('organizerName'),
+         		'organizername'=>Input::get('organizerName'),
          		'detail'=>Input::get('eventDescription'),
          		'address'=>Input::get('address'),
          		'start_date'=>date('Y-m-d',strtotime(Input::get('startdate'))),
