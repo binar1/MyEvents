@@ -21,12 +21,12 @@ $events=false;
 </head>
 <body>
 	<div class="container-fluid">
-    <?php include 'Header.php'; ?>
+    <?php #include 'Header.php'; ?>
     <?php if (isset($_GET['name'])) {
  	  $catagorey=new Catagorey($_GET['name']);
- 	 $eventsId=$catagorey->data()->id;
+ 	 $eventsId=$catagorey->data()->catagorey_id;
  	 $p1=null;
-    $events=new Event($p1,$eventsId);
+    $events=new Event($p1,$eventsId,null);
 ?>
 	<div class="container" style="width: 100%; height: 400px; padding-top: 55px;">
 		<img style="height: 350px;" src=<?php if ($catagorey) {
@@ -52,6 +52,7 @@ $events=false;
 		</form></div>
 <div class="row container1" style="padding: 5px; width: 100%;">
    <?php 
+   
    if ($events->result()) {
       
    
@@ -59,7 +60,7 @@ $events=false;
        	$price='';
        	if (!$ones->price) {
        		$price='Free';
-       	}else{$price .= $ones->price;}
+       	}else{$price .= $ones->price."$";}
      echo "<div class='imageBox col-sm-4' ><img src='../images/Events/$ones->img'>
           <a href='EventDetail.php?number=$ones->event_id'><div class='textBox'>
           <h2 align=center>$ones->name</h2>

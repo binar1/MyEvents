@@ -5,7 +5,7 @@ $GLOBALS['config']= array(
 		'host' =>'127.0.0.1' ,
 		'username'=>'root',
 		'password'=>'',
-		'db'=>'myeventsdb'
+		'db'=>'meventsdb'
 	),
 	'remember'=>  array(
 		'cookie_name' => 'hash',

@@ -3,6 +3,33 @@ $user=new User();
    if (!$user->isLoggedIn()) {
   Redirect::to('../include/Login.php');
 }
+  if (isset($_POST['Save']) && isset($_GET['part'])) {
+    if (Token::check(Input::get('token3'))) {
+       $validate=new ValidationMember();
+     if (isset($_FILES['file']['name'])){
+       $validate->checkImage($_FILES,array('file'=>array('max' =>1000000,'type'=>array('jpeg','jpg' ))));
+     if ($validate->passed()) {
+         $user->imageCertificate('organization',array('certificate' =>$user->ImagesPrepare($_FILES['file'],"Certificate/")));
+      header('Location:Profile.php?part=certificate');
+    
+     }else
+     {
+      echo "<div class='alert alert-danger alert-dismissible fade in' style='margin-top:70px;'>
+    <a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a>";
+  
+    foreach ($validate->errors() as $error) {
+     echo "$error<br>";
+    }
+    echo "</div>";
+
+     }
+
+
+    }
+    }
+    
+  }
+
  if (isset($_POST['image'])) {
   if (Token::check(Input::get('token1'))) {
   
@@ -11,8 +38,14 @@ $user=new User();
     $validate->checkImage($_FILES,array('UploadA'=>array('max' =>1000000,'type'=>array('jpeg','jpg' ))));
   if ($validate->passed()) {
     // $file=addslashes(file_get_contents($_FILES['UploadA']['tmp_name']));
-     $user->updateImage('customer',array('img' =>$user->ImagesPrepare($_FILES['UploadA'],"Profile/")));
-     header('Location:'.$_SERVER['PHP_SELF']);
+    if($_SESSION['type']==='customer'){ 
+      $user->updateImage('customer',array('img' =>$user->ImagesPrepare($_FILES['UploadA'],"Profile/")));
+     header('Location:'.$_SERVER['PHP_SELF']);}
+     elseif($_SESSION['type']==='organization'){
+       $user->updateImage('organization',array('img' =>$user->ImagesPrepare($_FILES['UploadA'],"Profile/")));
+         header('Location:'.$_SERVER['PHP_SELF']);
+     }
+    
   }else{
     foreach ($validate->errors() as $error) {
      echo "$error";
@@ -45,7 +78,7 @@ $user=new User();
    
   if ($validate->passed()) {
      if ($_SESSION['type']==='customer') {
-        $user->updateInfo('customer',array('firstname' => Input::get('firstname'),'lastname'=>Input::get('lastname'),'email'=>Input::get('email'),'phone'=>Input::get('phone'),'address'=>Input::get('address'),'gender'=>Input::get('gender')),Input::get('pwd'));
+        $user->updateInfo('customer',array('FirstName' => Input::get('firstname'),'LastName'=>Input::get('lastname'),'email'=>Input::get('email'),'phone'=>Input::get('phone'),'address'=>Input::get('address'),'gender'=>Input::get('gender')),Input::get('pwd'));
     Session::flash('home','Your Information updated');
      header('Location:Profile.php?part=setting');
      }elseif($_SESSION['type']==='organization')
@@ -145,7 +178,7 @@ padding-bottom:20px;
       <input type="hidden" name="token1" value=<?php echo Token::genarate(); ?> >
       <input type="submit" name="image" value="Change"  class="btn btn-info">
      </div> 
-    <h3 align="center" style="text-transform:capitalize;"><?php if($_SESSION['type']==='customer'){echo $user->data()->firstname;}elseif($_SESSION['type']==='organization'){echo $user->data()->name;}  ?></h3>
+    <h3 align="center" style="text-transform:capitalize;"><?php if($_SESSION['type']==='customer'){echo $user->data()->FirstName;}elseif($_SESSION['type']==='organization'){echo $user->data()->name;}  ?></h3>
     <div class="pro-pic-bg">
       <input type="butoon" name="UploadB" value="Upload" class="btn-warning" style="margin-top:50%;margin-left:28%;border-radius:20px;height:35px;width:80px;opacity:1;padding-left:13px">
       <input type="file" name="UploadA" accept="image/*"  style="margin-top:50%;margin-left:28%; width:80px;position:absolute;margin-top:-30px;opacity:0;cursor:pointer;">
@@ -157,7 +190,9 @@ padding-bottom:20px;
   <a href="?part=password" class="list-group-item list-group-item-action text-center">Change Password</a>
   <?php if ($_SESSION['type']==='organization') {
   ?><a href="AddEvent.php" class="list-group-item list-group-item-action text-center">Add Event</a>
-  <a href="MyEvents.php" class="list-group-item list-group-item-action text-center">My Event</a><?php } ?>
+  <a href="MyEvents.php" class="list-group-item list-group-item-action text-center">My Event</a>
+<a href="Profile.php?part=certificate" class="list-group-item list-group-item-action text-center">My Certificate</a>
+  <?php } ?>
  <?php if ($_SESSION['type']==='customer') { ?> <a href="MyTickets.php" class="list-group-item list-group-item-action text-center">My Tickts</a><?php } ?>
   
 </div>
@@ -187,9 +222,9 @@ padding-bottom:20px;
      	<div class="form-group">
      		<label class="control-label col-sm-2">FirstName</label>
      		<div class="col-sm-10" >
-     			<input type="text" name="firstname" class="form-control" style="width:40%;float:left;margin-right:3%;" value=<?php echo escape($user->data()->firstname); ?>  required >
+     			<input type="text" name="firstname" class="form-control" style="width:40%;float:left;margin-right:3%;" value=<?php echo escape($user->data()->FirstName); ?>  required >
           <label class="control-label col-sm-2">LastName</label>
-          <input type="text" name="lastname"  required class="form-control" style="width:40%;float:left;" value=<?php echo escape($user->data()->lastname); ?>>
+          <input type="text" name="lastname"  required class="form-control" style="width:40%;float:left;" value=<?php echo escape($user->data()->LastName); ?>>
      		</div>
      		</div>
         <?php }elseif($_SESSION['type']==='organization'){ ?>
@@ -246,7 +281,9 @@ padding-bottom:20px;
       <label >About</label>
       <textarea class="form-control" style="resize:none;" cols="20" rows="5" name="about"><?php echo $user->data()->about ?></textarea>
     </div>
-
+    <div class="container" style="background-color:black;margin-left:20%;">
+      
+    </div>
    <?php } ?>
       <hr style="height:2px;background-color:black">
      	<div class="form-group">
@@ -262,7 +299,28 @@ padding-bottom:20px;
 
   	<?php
   	}
-  	if($_GET['part']=="password"){
+
+    if($_GET['part']=="certificate" && $_SESSION['type']==='organization'){
+    ?>
+    <div class="container" style="margin-left:20%;width:600px;height:400px;">
+     <div style="background-color:rgba(0,0,0,0.9);width:100%;height:40px;color:white;"><h2 align="center">Upload Your certificate</h2></div> 
+     <form enctype= multipart/form-data style="padding-left:25%;padding-top:10%;width:100%;" action="Profile.php?part=certificate" method="POST">
+       <input type="file" name="file" accept="image/*" style="position:absolute;margin-top:8px;width:250px;background-color:transparent;opacity:0;color:transparent;">
+       <input type="button" name="btn-certificate" class="btn btn-primary" value="Browse" style="width:150px;" >
+       <input type="hidden" name="token3" value=<?php echo Token::genarate(); ?>>
+      <input type="submit" name="Save" value="Save" class="btn btn-success" style="position:relative;width:150px;">
+     </form> 
+     <img src=<?php if(!$user->data()->certificate){ echo "../images/certificate.png";}else{ echo "../images/Certificate/".$user->data()->certificate;} ?> style="height:300px;width:100%;margin-top:20px;">
+
+    </div>
+    <?php }
+?>   
+
+
+
+
+
+  <?php	if($_GET['part']=="password"){
   		?>
    <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']."?part=password"); ?> style="margin-left:10%;" method="POST">
    	<div class="form-group">

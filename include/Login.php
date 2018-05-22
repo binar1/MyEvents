@@ -77,14 +77,14 @@
 		 ?>	
 		
        
-    <div style="background-color:rgba(0,0,0,0.9);height:60px; width:300px;margin-top:70px;margin-left:40%;border-radius:50px;padding-left:50px;padding-top:10px;">
+    <div style="background-color:rgba(0,0,0,0.9);height:60px; width:300px;margin-top:60px;margin-left:37.5%;border-radius:50px;padding-left:50px;padding-top:10px;position:absolute;">
       <form action="" method="GET">
         <input type="submit" name="type" class="btn btn-danger" value="Organization">
         <input type="submit" name="type" class="btn btn-primary" value="Member">
       </form>
     </div>
-		<div class="loginBox">
-
+		<div class="loginBox" style="top:60%;">
+       
 			<h2 style="color:white;font-size:20px;"><?php if(isset($_GET['type'])){ ?>Log In As <?php echo $_GET['type'];}else{ echo "<span style='color:red;'>*please select you type Login<span>"; } ?></h2>
 			<form action="" method="POST">
 				<p>Email</p> 
@@ -99,7 +99,7 @@
 				<input type="hidden" name="token" value=<?php echo Token::genarate();   ?> >
 				<input type="submit" name="submit" value="Sign In" >
 				
-				<a href="#">Forget Password</a>
+				<a href="ForgetPass.php">Forget Password</a>
 			</form>
 		</div></div><div class="container-fluid" style="margin-top:600px;">
 			<?php include 'Footer.php'; ?>

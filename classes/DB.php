@@ -36,10 +36,11 @@ public function query($sql,$params=array())
        $x++;
      }
    }
+   
    if ($this->_query->execute()) {
     $this->_result=$this->_query->fetchAll(PDO::FETCH_OBJ);
     $this->_count=$this->_query->rowCount();
-     
+
   }else{
     $this->_error=true;
   }
@@ -73,6 +74,7 @@ public function result(){
   return $this->_result;
 }
 public function insert($table, $fildes=array()){
+    
      $keys=array_keys($fildes);
      $value='';
      $x=1;
@@ -85,6 +87,7 @@ public function insert($table, $fildes=array()){
        }
      }
      $sql="INSERT INTO ".$table." (`".implode('`,`',$keys)."`) VALUES ({$value})";
+     echo $sql;
          if (!$this->query($sql,$fildes)->error()) {
             return true;
            }  

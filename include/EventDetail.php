@@ -59,10 +59,11 @@ if (isset($_GET['number'])) {
  	</div>
  	<div class="col" style="height:100%;width:60%;float:left;">
  	<h1 class="text-center" style="margin:0;"> </h1>
- 	<h4 class="text-center">By:<?php echo $event->data()->oranizername; ?></h4>
- 	<h4 class="text-center text-light" style="font-family:serif;">Day:<?php echo $event->data()->start_date."&nbsp;&nbsp; Time:".$event->data()->time;  ?></h4>
+ <a href=<?php echo "ProfileOrganization.php?profile=".$event->data()->organization_id; ?>>  <h4 class="text-center">By:<?php echo $event->data()->organizername; ?></h4></a>
+ 	<h4 class="text-center text-light" style="font-family:serif;">Day:<?php echo $event->data()->start_date."&nbsp;&nbsp; Time:".$event->data()->start_time;  ?></h4>
  	<h4 class="text-center text-light" style="font-family:serif;">Address:<?php echo $event->data()->address;  ?></h4>
- 	<a href="" style="width:100%;height:50px;padding-top:15px;margin-top:10px;" class="btn btn-success">Buy Ticket</a>
+  <h4 class="text-center text-light" style="font-family:serif;">Finsh-Day:<?php echo $event->data()->end_date."&nbsp;&nbsp; Time:".$event->data()->end_time; ?></h4>
+ 	<a href=<?php echo "BuyTicket.php?Ticket=".base64_encode($event->data()->event_id); ?> style="width:100%;height:50px;padding-top:15px;margin-top:10px;" class="btn btn-success">Buy Ticket</a>
  </div>
  	<div class="col" style="height:100%;width:20%;float:left;">
  		<a href="#container-socials" data-toggle="collapse"><img  id="Like" src="../icon/Share.png" width="30px" height="30" align="left" style="margin-top:20%;cursor:pointer;"></a>

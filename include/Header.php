@@ -37,17 +37,17 @@
             <?php
             $member=new User(); 
             if($member->isLoggedIn()){ ?>
-             <li  style="font-weight:bold;">
+             <li  style="font-weight:bold;float:left;">
               <a href="Profile.php"><?php if($member->data()->img){ echo "<img src=../images/Profile/".$member->data()->img." style='width:30px;height:30px;margin-right:10px;border-radius:50px;'>"; }else{ echo "<img src=../images/Profile.png  style='width:25px;height:25px;margin-right:10px;border-radius:50px;'>";}?>Profile <span class="sr-only">(current)</span></a></li>
             <li>
               <a href="Logout.php"><img src="../images/logout.png" style="width:25px;height:25px;margin-right:10px;margin-left:10px;">Log Out</a></li>
          <?php   }else{
               ?>
-            <li class="active" style="font-weight:bold;">
+            <li class="active" style="font-weight:bold;float:left;margin:0;">
               <a href="Login.php">Log In <span class="sr-only">(current)</span></a></li>
             <li>
               <a href="Register.php">Sign Up</a></li>
-       <?php } ?>   </ul>
+       <?php } ?></ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>

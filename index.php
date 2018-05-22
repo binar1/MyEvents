@@ -112,12 +112,11 @@
     </style>
 
   </head>
-    <?php # include 'Header.php' ?>
   <body data-spy="scroll" data-target=".navbar" data-offset="50" style="">
 
    <div class="container-fluid" style="padding:0;">
     <?php 
-     $user=DB::getInstance()->query('select * from user');
+     //$user=DB::getInstance()->query('select * from user');
     // $update=DB::getInstance()->update('user',3,array('username' =>'Mr.binar','password'=>1234 ));
      
     //$insert= DB::getInstance()->insert('user',array('username' => 'binar','password'=>123));
@@ -138,7 +137,7 @@
            if ($user->isLoggedIn()){ ?>
            <div class="alert alert-success alert-dismissible" style="margin-top:70px;" >
              <button type="button" class="close" data-dismiss="alert">&times;</button>
-             <strong>Success!</strong> Welcome Back <?php if($_SESSION['type']==='customer'){echo escape($user->data()->firstname);}elseif ($_SESSION['type']==='organization') {
+             <strong>Success!</strong> Welcome Back <?php if($_SESSION['type']==='customer'){echo escape($user->data()->FirstName);}elseif ($_SESSION['type']==='organization') {
                  echo escape($user->data()->name)." Organization";
              }   ?>
             </div>
@@ -207,7 +206,7 @@
 	<h1 align="center">Browse by Top Categories</h1>
 	<div class="row" style="margin-top:40px;margin-bottom:30px;">
     <div class="col-lg-7 left-images" >
-    <a href=<?php echo "include/EventList.php?name=".$catagorey->result()[0]->name; ?>>	<img src=<?php echo "images/catagorey/".$catagorey->result()[0]->img ?> class="catagory-images" />
+    <a href=<?php echo "include/EventList.php?name=".$catagorey->result()[0]->name; ?>><img src=<?php echo "images/catagorey/".$catagorey->result()[0]->img; ?> class="catagory-images" />
     	<div class="container-cols"><p><?php echo $catagorey->result()[0]->name; ?></p></div></a>
     </div>
     <div class=" col-lg-4" >

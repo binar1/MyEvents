@@ -13,6 +13,11 @@ public static function to($location=null){
   				include '../../include/404.php';
   				exit();
   				break;
+          case 4041:
+          header('HTTP/1.0 404 Not Found');
+          include '404.php';
+          exit();
+          break;
   			
   		}
   	}

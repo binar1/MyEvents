@@ -10,9 +10,9 @@ class User
 	        $_SessionOrganization,
 	        $_CookieName,
 	        $_isLoggedIn;
-	function __construct($user=null)
+	function __construct($user=null,$table=null)
 	{
-		$table=false;
+		
 	 $this->_db=DB::getInstance();
 	 $this->_SessionName=Config::get('session/session_name');
 	 $this->_SessionOrganization=Config::get('session/session_organization');
@@ -34,11 +34,14 @@ class User
 	 		{
 	 			//logout
 	 		}
-	 	}else
-	 	{
-	 		$this->find($table,$user);
 	 	}
-	 }
+	 }else
+	 	{
+	 	   	
+	 	 $this->find($table,$user);
+	 		
+	 		
+	 	}
 	}
 
 	public function create ($table,$fields=array()){
@@ -149,23 +152,47 @@ if ($this->data()->password===Hash::make($oldPassword,$this->data()->salt)) {
  public function updateImage($table,$fields=array(),$id=null)
  {
  	if (!$id && $this->_isLoggedIn) {
- 		$id=$this->data()->customer_id;
+
+ 		$id=($_SESSION['type']==='customer') ? $this->data()->customer_id : $this->data()->organization_id;
  	}
  	if ($this->data()->img) {
  		unlink("../images/Profile/".$this->data()->img);
  	}
- 	 
- 	if (!$this->_db->update($table,'customer_id',$id,$fields)){
+ 	 if ($_SESSION['type']==='customer') {
+ 	 if (!$this->_db->update($table,'customer_id',$id,$fields)){
+ 		throw new Exception('there was aproblem updating!!');
+ 	}	
+ 	 }elseif($_SESSION['type']==='organization')
+ 	 {
+ 	 	
+    if (!$this->_db->update($table,'organization_id',$id,$fields)){
  		throw new Exception('there was aproblem updating!!');
  	}
+ 	 }
+ 	
  } 	
+
+ public function imageCertificate($table,$fields=array(),$id=null)
+ {
+ if (!$id && $this->_isLoggedIn) {
+
+ 		$id= $this->data()->organization_id;
+ 	}	
+    if ($this->data()->certificate ){
+ 		unlink("../images/Certificate/".$this->data()->certificate);
+ 	}
+ 	if (!$this->_db->update($table,'organization_id',$id,$fields)){
+ 		throw new Exception('there was aproblem updating!!');
+ 	}
+
+ }
 
  public function ImagesPrepare($file,$location){
    $filename=$file['name'];
     $fileExt=explode('.',$filename);
     $fileActuaExt=strtolower(end($fileExt));
     $newFileName=uniqid('',true).'.'.$fileActuaExt;
-    move_uploaded_file($_FILES['UploadA']['tmp_name'],"../images/".$location.$newFileName);
+    move_uploaded_file($file['tmp_name'],"../images/".$location.$newFileName);
     return $newFileName;
  }
 
